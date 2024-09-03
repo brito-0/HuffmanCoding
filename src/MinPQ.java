@@ -62,13 +62,13 @@ public class MinPQ<Key extends Comparable<Key>> implements Iterable<Key>
     {
         if (isEmpty()) throw new NoSuchElementException("Priority Queue underflow");
 
-        Key max = pq[1];
+        Key min = pq[1];
         exch(1, N--);
         pq[N + 1] = null;
         sink(1);
         if (N > 0 && N == pq.length / 4) resize(pq.length / 2);
         assert isMinHeap();
-        return max;
+        return min;
     }
 
     /**
